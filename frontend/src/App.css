@@ -1,0 +1,449 @@
+/* ── Auth wrapper ─────────────────────────────────────────────── */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f4c3a 0%, #1a8a5e 50%, #2dd49a 100%);
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.6rem;
+  color: #0f4c3a;
+}
+
+.auth-card .form-group {
+  margin-bottom: 16px;
+}
+
+.auth-card label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #1a8a5e;
+}
+
+.auth-card .btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: #1a8a5e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.auth-card .btn-primary:hover {
+  background: #15734e;
+}
+
+.auth-card .switch-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.auth-card .switch-link button {
+  background: none;
+  border: none;
+  color: #1a8a5e;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.error-msg {
+  background: #fee;
+  color: #c0392b;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.success-msg {
+  background: #e8f5e9;
+  color: #1a8a5e;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ── Navbar ──────────────────────────────────────────────────── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f4c3a;
+  color: #fff;
+  padding: 0 24px;
+  height: 56px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.nav-btn.logout {
+  color: #ff8a80;
+}
+
+.nav-btn.logout:hover {
+  background: rgba(255, 138, 128, 0.15);
+}
+
+/* ── Main content ────────────────────────────────────────────── */
+.main-content {
+  max-width: 960px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* ── Dashboard ───────────────────────────────────────────────── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid;
+}
+
+.summary-card.cal  { border-color: #ff6b35; }
+.summary-card.prot { border-color: #4ecdc4; }
+.summary-card.carb { border-color: #f9c846; }
+.summary-card.fat  { border-color: #e84393; }
+
+.summary-card .label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.summary-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.summary-card.cal  .value { color: #ff6b35; }
+.summary-card.prot .value { color: #4ecdc4; }
+.summary-card.carb .value { color: #d4a017; }
+.summary-card.fat  .value { color: #e84393; }
+
+.summary-card .unit {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Progress bar */
+.progress-track {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.summary-card.cal  .progress-fill { background: #ff6b35; }
+.summary-card.prot .progress-fill { background: #4ecdc4; }
+.summary-card.carb .progress-fill { background: #f9c846; }
+.summary-card.fat  .progress-fill { background: #e84393; }
+
+/* Food log table */
+.log-section h3 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.log-table th,
+.log-table td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.log-table th {
+  background: #f5f7fa;
+  font-weight: 600;
+  color: #666;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.log-table tr:not(:last-child) td {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 16px;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+/* ── Food search ─────────────────────────────────────────────── */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #1a8a5e;
+}
+
+.search-bar button {
+  padding: 12px 24px;
+  background: #1a8a5e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.search-bar button:hover {
+  background: #15734e;
+}
+
+.search-bar button:disabled {
+  background: #aaa;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.food-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s;
+}
+
+.food-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.food-card h4 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.3;
+}
+
+.food-macros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+}
+
+.food-macros span {
+  color: #666;
+}
+
+.food-macros .macro-val {
+  font-weight: 600;
+}
+
+.food-card .btn-add {
+  width: 100%;
+  padding: 10px;
+  background: #e8f5e9;
+  color: #1a8a5e;
+  border: 2px solid #1a8a5e;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.food-card .btn-add:hover {
+  background: #1a8a5e;
+  color: #fff;
+}
+
+/* ── Grams modal ─────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal h3 {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.modal p {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.modal input:focus {
+  outline: none;
+  border-color: #1a8a5e;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+}
+
+.modal-actions .btn-confirm {
+  background: #1a8a5e;
+  color: #fff;
+}
+
+.modal-actions .btn-confirm:hover {
+  background: #15734e;
+}
+
+.modal-actions .btn-cancel {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.modal-actions .btn-cancel:hover {
+  background: #e0e0e0;
+}
+
+/* ── Utilities ───────────────────────────────────────────────── */
+.loading {
+  text-align: center;
+  padding: 32px;
+  color: #888;
+}

@@ -2,6 +2,7 @@
 Pydantic schemas for request / response validation.
 """
 
+from datetime import datetime
 from typing import Optional
 
 from pydantic import BaseModel, EmailStr
@@ -42,3 +43,48 @@ class UserOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+# ── Food search ────────────────────────────────────────────────
+
+class FoodSearchResult(BaseModel):
+    fdc_id: int
+    name: str
+    calories: float
+    protein: float
+    carbs: float
+    fat: float
+
+
+# ── Food logging ───────────────────────────────────────────────
+
+class FoodLogCreate(BaseModel):
+    food_name: str
+    grams: float
+    calories: float
+    protein: float
+    carbs: float
+    fat: float
+
+
+class FoodLogOut(BaseModel):
+    id: int
+    food_name: str
+    grams: float
+    calories: float
+    protein: float
+    carbs: float
+    fat: float
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+# ── Daily summary ──────────────────────────────────────────────
+
+class DailySummary(BaseModel):
+    calories: float
+    protein: float
+    carbs: float
+    fat: float

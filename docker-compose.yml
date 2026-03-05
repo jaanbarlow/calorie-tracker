@@ -28,11 +28,25 @@ services:
       SECRET_KEY: ${SECRET_KEY:-super-secret-change-me-in-production}
       ALGORITHM: ${ALGORITHM:-HS256}
       ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES:-60}
+      USDA_API_KEY: ${USDA_API_KEY:-DEMO_KEY}
     depends_on:
       postgres:
         condition: service_healthy
     volumes:
       - ./backend:/code   # live-reload during development
+
+  # ── React frontend ──────────────────────────────────────────
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src   # live-reload during development
 
 volumes:
   pgdata:
