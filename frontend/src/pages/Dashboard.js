@@ -1,22 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { api } from "../api";
 
-/* Daily targets (kcal / g) — could be made configurable later */
-const TARGETS = { calories: 2200, protein: 150, carbs: 250, fat: 70 };
+const DEFAULT_TARGETS = { calories: 2000, protein: 150, carbs: 225, fat: 67 };
 
 export default function Dashboard() {
   const [summary, setSummary] = useState(null);
-  const [logs, setLogs] = useState([]);
+  const [logs, setLogs]       = useState([]);
+  const [targets, setTargets] = useState(DEFAULT_TARGETS);
   const [loading, setLoading] = useState(true);
 
   const fetchData = useCallback(async () => {
     try {
-      const [s, l] = await Promise.all([
+      const [s, l, t] = await Promise.all([
         api("/foods/today"),
         api("/foods/logs"),
+        api("/me/targets"),
       ]);
       setSummary(s);
       setLogs(l);
+      setTargets(t);
     } catch {
       /* token might be stale — ignore for now */
     } finally {
@@ -43,7 +45,7 @@ export default function Dashboard() {
           label="Calories"
           value={summary?.calories ?? 0}
           unit="kcal"
-          target={TARGETS.calories}
+          target={targets.calories}
           pct={pct}
         />
         <Card
@@ -51,7 +53,7 @@ export default function Dashboard() {
           label="Protein"
           value={summary?.protein ?? 0}
           unit="g"
-          target={TARGETS.protein}
+          target={targets.protein}
           pct={pct}
         />
         <Card
@@ -59,7 +61,7 @@ export default function Dashboard() {
           label="Carbs"
           value={summary?.carbs ?? 0}
           unit="g"
-          target={TARGETS.carbs}
+          target={targets.carbs}
           pct={pct}
         />
         <Card
@@ -67,7 +69,7 @@ export default function Dashboard() {
           label="Fat"
           value={summary?.fat ?? 0}
           unit="g"
-          target={TARGETS.fat}
+          target={targets.fat}
           pct={pct}
         />
       </div>

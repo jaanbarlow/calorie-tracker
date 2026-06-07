@@ -25,6 +25,9 @@ class User(Base):
     # "lose" | "maintain" | "gain"
     goal_type = Column(String, nullable=True)
 
+    # "male" | "female" — used for accurate Mifflin-St Jeor BMR calculation
+    gender = Column(String, nullable=True)
+
 
 class FoodLog(Base):
     __tablename__ = "food_logs"

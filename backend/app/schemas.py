@@ -40,9 +40,29 @@ class UserOut(BaseModel):
     age: Optional[int] = None
     activity_level: Optional[str] = None
     goal_type: Optional[str] = None
+    gender: Optional[str] = None
 
     class Config:
         from_attributes = True
+
+
+class UserUpdate(BaseModel):
+    weight: Optional[float] = None
+    height: Optional[float] = None
+    age: Optional[int] = None
+    activity_level: Optional[str] = None
+    goal_type: Optional[str] = None
+    gender: Optional[str] = None
+
+
+class MacroTargets(BaseModel):
+    calories: float
+    protein: float
+    carbs: float
+    fat: float
+    bmr: float
+    tdee: float
+    complete: bool   # False when profile data is missing
 
 
 # ── Food search ────────────────────────────────────────────────

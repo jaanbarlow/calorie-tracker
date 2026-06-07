@@ -3,6 +3,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import FoodSearch from "./pages/FoodSearch";
 import Dashboard from "./pages/Dashboard";
+import AgentChat from "./pages/AgentChat";
+import Profile from "./pages/Profile";
 import "./App.css";
 
 export default function App() {
@@ -55,6 +57,18 @@ export default function App() {
           >
             Search Food
           </button>
+          <button
+            className={`nav-btn ${page === "agent" ? "active" : ""}`}
+            onClick={() => setPage("agent")}
+          >
+            🤖 AI Coach
+          </button>
+          <button
+            className={`nav-btn ${page === "profile" ? "active" : ""}`}
+            onClick={() => setPage("profile")}
+          >
+            👤 Profile
+          </button>
           <button className="nav-btn logout" onClick={handleLogout}>
             Logout
           </button>
@@ -65,6 +79,8 @@ export default function App() {
       <main className="main-content">
         {page === "dashboard" && <Dashboard />}
         {page === "search" && <FoodSearch onLogged={() => setPage("dashboard")} />}
+        {page === "agent" && <AgentChat />}
+        {page === "profile" && <Profile />}
       </main>
     </div>
   );
